@@ -29,20 +29,52 @@ android {
             )
         }
     }
+    kotlin {
+        jvmToolchain(21)
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
+        }
+    }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
+
     buildFeatures {
         compose = true
     }
 }
 
 dependencies {
+    //Google Accompanist
+    implementation("com.google.accompanist:accompanist-flowlayout:0.30.1")
 
+    //Kotlin Serialization
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.0.0")
+
+    //JSON Serialization
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
+
+    //Datastore Preferences
+    implementation("androidx.datastore:datastore-preferences:1.1.7")
+
+    // Activity & Navigation
+    implementation("androidx.navigation:navigation-compose:2.9.3")
+
+    // Lifecycle & ViewModel (Compose)
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.2")
+
+    // Room with KTX + KSP
+    implementation("androidx.room:room-runtime:2.7.2")
+    implementation("androidx.room:room-ktx:2.7.2")
+    ksp("androidx.room:room-compiler:2.7.2")
+
+    // Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
+    // Icons
+    implementation("androidx.compose.material:material-icons-extended:1.7.8")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
