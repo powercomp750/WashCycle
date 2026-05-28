@@ -76,8 +76,8 @@ fun AppNavHost(viewModel: LaundrySessionViewModel) {
         NavHost(navController = navController, startDestination = "add", modifier = Modifier.fillMaxSize().padding(padding)) {
             composable("add") { AddLaundrySessionScreen(viewModel, settingsStorage) }
             composable("history") { HistoryScreen(viewModel, settingsStorage) }
-            composable("stats") { StatsScreen(viewModel,settingsStorage) }
-            composable("settings") { SettingsScreen(viewModel,settingsStorage, backupManager)  }
+            composable("stats") { StatsScreen(viewModel) }
+            //composable("settings") { SettingsScreen(settingsStorage)  }
         }
     }
 }
