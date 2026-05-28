@@ -24,9 +24,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun SettingsScreen(settingsDataStore: Settings) {
     val scope = rememberCoroutineScope()
-    //val use12HourFormat by settingsDataStore.use12HourFormat.collectAsState(initial = true)
-
-
+    val use12HourFormat: Boolean
 
     Column(
         modifier = Modifier
@@ -42,14 +40,14 @@ fun SettingsScreen(settingsDataStore: Settings) {
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Use 12-hour time format (AM/PM)")
-//            Switch(
-//                checked = use12HourFormat,
-//                onCheckedChange = {
-//                    scope.launch {
-//                        settingsDataStore.setUse12HourFormat(it)
-//                    }
-//                }
-//            )
+            Switch(
+                checked = true,
+                onCheckedChange = {
+                    scope.launch {
+                        //settingsDataStore.setUse12HourFormat(it)
+                    }
+                }
+            )
         }
     }
 }
